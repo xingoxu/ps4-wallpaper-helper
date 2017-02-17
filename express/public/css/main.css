@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+}
+.el-notification__content {
+  text-align: initial;
+}
+
+#app h1 {
+  padding: 20px;
+  margin: 0;
+  background: #009688;
+  color: #FFF;
+}
+
+#drop-zone {
+  margin: 20px;
+  border: 2px dashed #bbb;
+  border-radius: 5px;
+  height: calc(100vh - 122px);
+  text-align: center;
+  font: 20pt bold;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color: #bbb;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+}
+#drop-zone>span {
+  width: 100%;
+}
+
+#drop-zone.drag-over {
+  border: 2px dashed #999;
+  background-color: #f0f0f0;
+}
+
+#current-img {
+  position: absolute;
+  right: 22px;
+  bottom: 2px;
+  width: 300px;
+  z-index: -1;
+}
+
+#current-img img {
+  display: block;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+}

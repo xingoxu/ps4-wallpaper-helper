@@ -1,22 +1,32 @@
 {
-  "name": "electron-quick-start",
+  "name": "ps4-wallpaper-helper",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A really helpful tool for change ps4 wallpaper",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
+  "repository": "https://github.com/xingoxu/ps4-wallpaper-helper",
+  "author": "xingo",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^1.4.1"
+    "electron": "^1.4.1",
+    "electron-builder": "^13.9.0"
+  },
+  "dependencies": {
+    "express": "~4.14.1",
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "ejs": "~2.5.5",
+    "debug": "~2.6.0",
+    "morgan": "~1.7.0"
+  },
+  "build": {
+    "appId": "com.xingoxu.ps4helper",
+    "mac": {
+      "category": "public.app-category.utilities"
+    }
   }
 }

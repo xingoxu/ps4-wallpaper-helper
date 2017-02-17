@@ -7,13 +7,21 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+const server = require('./express/bin/www');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    "web-preferences": {
+      "web-security": false
+    }
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -23,14 +31,29 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    mainWindow = null
+    mainWindow = null;
+    server.stop();
+  })
+
+  server.start((port) => {
+    // In the main process.
+    global.server = {
+      port: port,
+    };
+    mainWindow && mainWindow.loadURL(url.format({
+      pathname: `/`,
+      hostname: '127.0.0.1',
+      port: port,
+      protocol: 'http:',
+      slashes: true
+    }));
   })
 }
 
@@ -43,9 +66,9 @@ app.on('ready', createWindow)
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
+  // if (process.platform !== 'darwin') {
     app.quit()
-  }
+  // }
 })
 
 app.on('activate', function () {

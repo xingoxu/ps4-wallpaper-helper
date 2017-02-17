@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PS4 Wallpaper Helper</title>
+    <link rel="stylesheet" href="/css/element.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>PS4 Wallpaper Helper</h1>
+      <div v-loading="loading" class="main">
+        <div id="current-img">
+          <span>Current Image</span>
+          <img src="/img" ref="currentImage">
+        </div>
+        <div id="drop-zone" :class="{'drag-over': isDragging}"
+        @dragover.prevent="isDragging=true"
+        @drop.prevent="handleFileSelect"
+        @dragenter="isDragging=true"
+        @dragleave="isDragging=false">
+          <span>Drag & Drop Images here</span>
+        </div>
+      </div>
+
+    </div>
+  </body>
+
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/vue-resource.min.js"></script>
+  <script src="/js/element.min.js"></script>
+  <script src="/js/main.js"></script>
+</html>

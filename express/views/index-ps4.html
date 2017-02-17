@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>PS4 Wallpaper Helper</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #app img{
+        display: block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <img src="/img">
+    </div>
+  </body>
+
+  <script src="/js/modernizr-custom.js"></script>
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script>
+    var sendBody = {
+      innerHeight: innerHeight,
+      innerWidth: innerWidth,
+      outerHeight: outerHeight,
+      outerWidth: outerWidth,
+    };
+    for(var i in Modernizr){
+      if(Modernizr.hasOwnProperty(i))
+        sendBody[i] = Modernizr[i];
+    }
+    $.post('/info',sendBody);
+  </script>
+</html>
