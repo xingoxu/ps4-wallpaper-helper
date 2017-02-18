@@ -39,7 +39,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error, callback) {
     if (error.syscall !== 'listen') {
         throw error;
     }
@@ -47,15 +47,20 @@ function onError(error) {
     var bind = typeof port === 'string'
         ? 'Pipe ' + port
         : 'Port ' + port;
-
+    
+    let reason = '';
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
+            reason = bind + ' requires elevated privileges';
+            callback(new Error(reason));
+            console.error(reason);
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
+            reason = bind + ' is already in use';
+            callback(new Error(reason));
+            console.error(reason);
             process.exit(1);
             break;
         default:
@@ -87,15 +92,16 @@ function start(callback) {
      * Listen on provided port, on all network interfaces.
      */
     server.listen(port);
-    server.on('error', onError);
-    server.on('listening', function () {
+    server.on('error', (error) => {
+        onError(error, callback);
+    });
+    server.on('listening', () => {
         onListening(server);
         callback && callback(port);
     });
 }
 
-//注释这里 当使用electron调用时
-// start();
+(!process.env.ELECTRON) && start();
 module.exports = {
     start: start,
     stop(){

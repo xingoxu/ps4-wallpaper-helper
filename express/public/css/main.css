@@ -1,31 +1,98 @@
 body {
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+  font-size: 16px;
+  -webkit-user-select: none;
+  cursor: default;
 }
+.el-notification__content {
+  -webkit-user-select: initial;
+  cursor: auto;
+}
+.el-dropdown-menu.is-dark{
+  background: #1f2d3d;
+  color: #FFF;
+  border: 0;
+  font-size: 14px;
+}
+.danger {
+  color: #FF4949;
+}
+.el-tooltip__popper {
+  border-radius: 0;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+  font-size: 13px;
+  line-height: 1.4;
+}
+[v-cloak] {
+  display: none;
+}
+
 .el-notification__content {
   text-align: initial;
 }
 
-#app h1 {
+#app>header {
   padding: 20px;
-  margin: 0;
   background: #009688;
   color: #FFF;
 }
+#app>header:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#app>header>h1 {
+  display: inline;
+  line-height: 40px;
+}
+
+#app>header>.right {
+  float: right;
+}
+#app>header>.right>* {
+  margin-left: 16px;
+  vertical-align: middle;
+}
+#app>header>.right button{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  height: 40px;
+  color: #FFF;
+  transition: color .3s;
+}
+#app>header>.right button:hover{
+  color: #00796B;
+}
+#app>header>.right a.language-link {
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+}
+#app>header>.right a.language-link>span {
+  opacity: .5;
+}
+#app>header>.right a.language-link>span.active {
+  opacity: 1;
+}
+
 
 #drop-zone {
   margin: 20px;
   border: 2px dashed #bbb;
   border-radius: 5px;
-  height: calc(100vh - 122px);
+  height: calc(100vh - 164px);
   text-align: center;
   font: 20pt bold;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #bbb;
   font-size: 40px;
   display: flex;
   align-items: center;
 }
+
 #drop-zone>span {
   width: 100%;
 }
@@ -48,6 +115,121 @@ body {
   width: 100%;
 }
 
-.main {
+.relative {
   position: relative;
 }
+
+
+[class*=" icon-"], [class^=icon-] {
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  fill: currentColor;
+}
+.icon-github {
+  width: 28px;
+  height: 28px;
+}
+.icon-help {
+  width: 32px;
+  height: 32px;
+}
+
+#intro {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.tooltip-content {
+  text-align: center;
+}
+
+#intro .button-group {
+  margin-top: 20px;
+  text-align: center;
+}
+#intro a.close{
+  position: absolute;
+  right: 22px;
+  top: 22px;
+  z-index: 9;
+  font-size: 28px;
+  color: rgba(132, 146, 166, 0.8);
+  transition: color .3s;
+}
+#intro a.close:hover {
+  color: rgba(132, 146, 166, 1);
+}
+
+.button-group .el-button {
+  transition: all .3s;
+  display: inline-block;
+  margin: 0 5px;
+}
+.button-group-enter, .button-group-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.button-group-leave-active {
+  position: absolute;
+}
+
+.intro-slide {
+  position: relative;
+  height: 80vh;
+  transition: all .3s;
+  white-space: nowrap; 
+}
+
+.intro-wrapper {
+  height: 80vh;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+.intro-wrapper .img {
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;  
+}
+.intro-wrapper .img img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;    
+}
+
+.transup-enter-active, .transup-leave-active {
+  transition: all .3s ease;
+  transition-property: opacity,transform;
+}
+.transup-enter, .transup-leave-to {
+  opacity: 0;
+  transform: translateY(20vh);
+}
+
+.transdown-enter-active, .transdown-leave-active {
+  transition: all .3s ease;
+  transition-property: opacity,transform;
+}
+.transdown-enter, .transdown-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.el-zoom-in-top-enter-active, .el-zoom-in-top-leave-active {
+  transition: all .3s ease;
+  transition-property: opacity,transform;
+  transform-origin: initial !important;  
+}
+.el-zoom-in-top-enter, .el-zoom-in-top-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+  transform-origin: initial !important;
+}
+
+

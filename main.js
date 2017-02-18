@@ -1,3 +1,4 @@
+process.env.ELECTRON = true;
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -43,6 +44,10 @@ function createWindow () {
   })
 
   server.start((port) => {
+    if (port instanceof Error) {
+      electron.dialog.showErrorBox('Error Occurred!', port.message);
+      return;
+    }
     // In the main process.
     global.server = {
       port: port,

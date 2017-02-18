@@ -4,6 +4,17 @@ Believe me! It's really helpful.
 
 Readme is under developing.
 
-Thanks to great electron & express.js;
+Built and Inspired by 
+
+- [Electron](http://electron.atom.io/)
+- [Express.js](http://expressjs.com/)
+- [Vue.js](http://vuejs.org/)
+- [Element UI](http://element.eleme.io/)
+
+## Todos
+
+- Change icon
+- Change about
+- Add websocket for PS4 pages
 
 #### License [CC0 1.0 (Public Domain)](LICENSE.md)
