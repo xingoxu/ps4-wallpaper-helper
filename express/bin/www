@@ -87,6 +87,7 @@ function start(callback) {
      */
 
     server = http.createServer(app);
+    require('../routes/ws.js')(server);
 
     /**
      * Listen on provided port, on all network interfaces.

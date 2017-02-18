@@ -19,19 +19,11 @@
     </div>
   </body>
 
-  <script src="/js/modernizr-custom.js"></script>
-  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <script>
-    var sendBody = {
-      innerHeight: innerHeight,
-      innerWidth: innerWidth,
-      outerHeight: outerHeight,
-      outerWidth: outerWidth,
-    };
-    for(var i in Modernizr){
-      if(Modernizr.hasOwnProperty(i))
-        sendBody[i] = Modernizr[i];
-    }
-    $.post('/info',sendBody);
+    var ws = io.connect('/ws');
+    ws.on('refresh',function(){
+      location.reload();
+    });
   </script>
 </html>

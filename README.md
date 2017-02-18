@@ -15,6 +15,6 @@ Built and Inspired by
 
 - Change icon
 - Change about
-- Add websocket for PS4 pages
+- add upload ?
 
 #### License [CC0 1.0 (Public Domain)](LICENSE.md)
