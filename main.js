@@ -54,9 +54,9 @@ function createWindow () {
       return;
     }
     // In the main process.
-    console.log(global.client);
     global.server.port = port;
     Menu.setApplicationMenu(require('./menu.js'));
+    console.log(port);
     mainWindow && mainWindow.loadURL(url.format({
       pathname: `/`,
       hostname: '127.0.0.1',

@@ -1,7 +1,7 @@
 {
   "name": "ps4-wallpaper-helper",
   "productName": "PS4 Wallpaper Helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A really helpful tool for change ps4 wallpaper",
   "main": "main.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.1",
-    "electron-builder": "^13.9.0"
+    "electron-builder": "^13.11.1"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
