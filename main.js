@@ -1,14 +1,19 @@
 process.env.ELECTRON = true;
 const electron = require('electron')
 // Module to control application life.
-const app = electron.app
+const app = electron.app;
+app.commandLine.appendSwitch('disable-http-cache');
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
+const BrowserWindow = electron.BrowserWindow;
+const Menu = electron.Menu;
 
 const path = require('path')
 const url = require('url')
 
 const server = require('./express/bin/www');
+
+global.client = {};
+global.server = {};
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,9 +24,9 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    "web-preferences": {
-      "web-security": false
-    }
+    webPreferences: {
+      webSecurity: false
+    },
   })
 
   // and load the index.html of the app.
@@ -32,7 +37,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  require('electron-is-dev') ? mainWindow.webContents.openDevTools() : false;
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -49,9 +54,9 @@ function createWindow () {
       return;
     }
     // In the main process.
-    global.server = {
-      port: port,
-    };
+    console.log(global.client);
+    global.server.port = port;
+    Menu.setApplicationMenu(require('./menu.js'));
     mainWindow && mainWindow.loadURL(url.format({
       pathname: `/`,
       hostname: '127.0.0.1',

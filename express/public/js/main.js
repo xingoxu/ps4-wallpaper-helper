@@ -1,7 +1,4 @@
 (() => {
-  if (window.require) {
-    var fs = require('fs');
-  }
   let i18Trans = {
     'eng': {
       name: 'En',
@@ -25,6 +22,7 @@
       'successUploaded': 'Open your PS4 Browser with one of the following urls: ',
       'selectWrongFile': 'You might choose wrong file. Check it?',
       success: 'Success',
+      welcome: 'Welcome',
     },
     'chs': {
       name: '中文',
@@ -47,7 +45,8 @@
       'moreThanOneFileSelected': '选择了多个文件，仅第一个文件会被使用。',
       'successUploaded': '打开PS4网络浏览器，输入以下网址的其中一个：',
       'selectWrongFile': '你好像选择的不是图片文件，请再检查一下',
-      success: '成功',      
+      success: '成功',
+      welcome: '欢迎',
     },
     'jpn': {
       name: '日本語',
@@ -70,7 +69,8 @@
       'moreThanOneFileSelected': '複数のファイルを選択した、最初のファイルのみが使用されます',
       'successUploaded': 'PS4のウェブブラウザを開いて，下のURLのいずれかを入力してください：',      
       'selectWrongFile': '間違ったファイルが選択されました、チェックしてください',
-      success: '成功した',      
+      success: '成功した',
+      welcome: 'ようこそ',      
     }
   }
 
@@ -104,13 +104,22 @@
           return value = `http://${value}:${port}`;
         })
         return ips;
-      })()
+      })(),
+
+      ajaxID: 0,
     },
     mounted() {
       if (this.isFirstTime) 
         this.introShowing = true;
       document.title = this.i18n('title');
       this.currentLang = localStorage['language'] || 'eng';
+      if (window.require)
+      {
+        require('electron').ipcRenderer.on('showWelcome', () => {
+          this.introShowing = true;
+        });
+        require('electron').ipcRenderer.send('mainWindowRegister');
+      }  
     },
     computed: {
       intros() {
@@ -121,6 +130,9 @@
       },
       languages() {
         return i18Trans;
+      },
+      imgURL() {
+        return `/img?v=${this.ajaxID}`
       }
     },
     methods: {
@@ -169,11 +181,7 @@
                 this.githubTooltip = true;            
               }
             });
-            fs.readFile(file.path, (err, buffer) => {
-              if (err) return;
-              let blob = new window.Blob([new Uint8Array(buffer)]);
-              this.$refs.currentImage.src = window.URL.createObjectURL(blob);
-            });
+            this.ajaxID++;
           })
           .catch(response => {
             this.$message({
