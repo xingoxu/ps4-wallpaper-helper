@@ -1,8 +1,14 @@
 # PS4 Wallpaper Helper
 
-Believe me! It's really helpful.
+A tool help you to change PS4(after 4.50) wallpaper and profile page image.
 
-Readme is under developing.
+## Tips
+1. You can drop image continuously to the tool and your ps4 web browser will refresh automatically.
+
+## FAQ
+1. Why I open the tool and shows a white screen? （为什么我打开工具是一片白？）
+
+    Please turn off your proxy and press ctrl/⌘ + R （请关掉代理，然后按下 Ctrl/⌘ + R）
 
 Built and Inspired by 
 
@@ -13,8 +19,6 @@ Built and Inspired by
 
 ## Todos
 
-- Change icon
-- Change about
-- add upload ?
+- add upload for ps4 to PC ?
 
-#### License [CC0 1.0 (Public Domain)](LICENSE.md)
+#### License [MIT](LICENSE)
