@@ -44,7 +44,7 @@
       <div v-loading="loading" class="relative">
         <div id="current-img">
           <span>{{i18n('currentImage')}}</span>
-          <img src="/img" ref="currentImage">
+          <img :src="imgURL">
         </div>
         <div id="drop-zone" :class="{'drag-over': isDragging}"
         @dragover.prevent="isDragging=true"
@@ -62,10 +62,11 @@
           </a>
           <div class="intro-slide" :style="{ transform: `translateX(-${introStep}00%)` }">
             <div v-for="(intro,index) in intros" class="intro-wrapper" key="index">
+              <div class="welcome" v-if="index==0">{{i18n('welcome')}}</div>
               <div class="img">
                 <img :src="`/assets/intro-${index+1}.png`">
               </div>
-              <div style="margin-top: 20px;">{{index+1}}. {{intro.text}}</div>
+              <div :style="{marginTop: index==0 ? false : '20px'}">{{index+1}}. {{intro.text}}</div>
               <div class="danger" v-if="intro.warning">{{intro.warning}}</div>
             </div>
           </div>
