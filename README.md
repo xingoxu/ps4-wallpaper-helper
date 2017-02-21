@@ -17,8 +17,4 @@ Built and Inspired by
 - [Vue.js](http://vuejs.org/)
 - [Element UI](http://element.eleme.io/)
 
-## Todos
-
-- add upload for ps4 to PC ?
-
 #### License [MIT](LICENSE)
