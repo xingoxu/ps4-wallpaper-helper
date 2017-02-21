@@ -82,6 +82,11 @@ new Vue({
   },
   created() {
     this.getStarNumber();
+    let language = navigator.browserLanguage || navigator.language;
+    if (language.indexOf('cn') >= 0)
+      this.currentLang = 'chs';
+    if (language.indexOf('ja') >= 0)
+      this.currentLang = 'jpn';
   },
   mounted() {
     document.addEventListener('scroll', event => {
