@@ -1,0 +1,201 @@
+body,button {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+  font-size: 16px;
+}
+div>img {
+  display: block;
+  max-width: 100%;
+}
+[v-cloak] {
+  display: none;
+}
+.language-link {
+  float: right;
+}
+a {
+  text-decoration: none;
+}
+#app {
+  >*>h2 {
+    text-align: center;
+  }
+  >header {
+    background: #003791;
+    color: #FFF;
+
+    padding: 20px;
+    text-align: center;
+    a {
+      color: #FFF;
+      transition: all .3s;
+    }
+    >.title-img {
+      width: 200px;
+      margin: 0 auto;
+    }
+    >h1 {
+      font-size: 3rem;
+      font-weight: normal;
+    }
+    >h2 {
+      font-weight: lighter;
+      word-spacing: 2px;
+      margin-bottom: 2rem;
+    }
+    >.button-group > a {
+      display: inline-block;
+      white-space: pre-wrap;
+      font-size: 1rem;
+      padding: .5rem 2rem;
+      border-radius: 0.3rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,.12), 0 0 6px rgba(0,0,0,.12);
+      border: 1px solid #FFF;
+      font-weight: lighter;
+      line-height: 1.33;
+      margin: 0 8px;
+      &:hover {
+        background: #FFF;
+        color: #003791;
+      }
+      &:active {
+        box-shadow: none;
+        border: 0;
+      }
+    }
+    >.button-group {
+      margin-bottom: 1.25rem;
+    }
+    >.height-for-absolute {
+      height: 1.25rem;
+    }
+    >.show-download-button,>.all-download {
+      position: absolute;
+      left: 0;
+      right: 0;
+      font-size: .75rem;
+      >div {
+        display: inline-block;
+      }
+      button {
+        background: transparent;
+        border: 0;
+        color: #FFF;
+        cursor: pointer;
+        font-size: .75rem;        
+      }
+      a {
+        margin-right: 1em;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .language-link {
+    a {
+      color: rgba(255, 255, 255, 0.5);
+      transition: color .3s;
+    }
+    a.active,a:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+.transright-enter-active,.transright-leave-active,.transleft-enter-active,.transleft-leave-active {
+  transition: all .3s;
+}
+
+.transright-enter, .transright-leave-to,.transleft-enter, .transleft-leave-to {
+  opacity: 0;
+}
+.transright-enter, .transright-leave-to {
+  transform: translateX(20px);
+}
+
+#app {
+  .intro>h2 {
+    font-weight: normal;
+  }
+  .intro-wrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px 0;
+    background: #003791;
+    color: #FFF;
+    .text {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      font-size: 1.5rem;
+      p {
+        padding: 0 20px;
+      }
+    }
+    .img {
+      width: 60%;
+      transform: translateX(-100%);
+      transition: transform 1s;
+      &.show {
+        transform: translateX(0);
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  .intro-wrapper.right {
+    flex-direction: row-reverse;
+    background: #FFF;
+    color: #003791;
+    .img {
+      transform: translateX(100%);
+      &.show {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .love>h2 {
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 1.5rem;  
+  }
+
+  .love {
+    text-align: center;
+    padding: 4rem;
+    >a {
+      display: inline-block;
+      color: transparent;
+      
+      width: 130px;
+      height: 90px;
+      background: url('assets/twitter_fave_waifu2x_art_noise3_scale_tta_1.png') center no-repeat;
+      background-position: 0 0px;
+      cursor: pointer;
+      &:hover {
+        background-position: -7038px 0px;
+        transition: background 1s steps(55);        
+      }
+    }
+  }
+
+  footer {
+    color: rgba(255, 255, 255, 0.6);
+    background: #003791;
+    padding: 40px 0;
+    >div {
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+}
