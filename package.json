@@ -14,7 +14,8 @@
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.1",
-    "electron-builder": "^13.11.1"
+    "electron-builder": "^13.11.1",
+    "shelljs": "^0.7.6"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -31,6 +32,12 @@
     "appId": "com.xingoxu.ps4helper",
     "mac": {
       "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "7z",
+        "nsis"
+      ]
     }
   }
 }
