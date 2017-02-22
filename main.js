@@ -48,6 +48,17 @@ function createWindow () {
     server.stop();
   })
 
+  const Config = require('electron-config');
+  const config = new Config();
+  if (!config.get('not-first-run') && process.platform == 'win32') {
+    electron.dialog.showMessageBox({
+      type: 'info',
+      title: 'First run',
+      message: 'Please allow your firewall in order that PS4 can reach your computer.'
+    })
+  }
+  config.set('not-first-run', true);
+
   server.start((port) => {
     if (port instanceof Error) {
       electron.dialog.showErrorBox('Error Occurred!', port.message);
