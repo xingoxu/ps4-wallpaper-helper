@@ -63,6 +63,10 @@ const template = [
       {
         label: 'Star me!',
         click () { require('electron').shell.openExternal('https://github.com/xingoxu/ps4-wallpaper-helper') }
+      },
+      {
+        label: 'Have any question?',
+        click() { require('electron').shell.openExternal(`https://github.com/xingoxu/ps4-wallpaper-helper/issues/new`) }
       }
     ]
   }

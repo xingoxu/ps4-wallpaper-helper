@@ -1,26 +1,29 @@
 {
   "name": "ps4-wallpaper-helper",
   "productName": "PS4 Wallpaper Helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A really helpful tool for change ps4 wallpaper",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "build",
+    "dist:win": "node build.js"
   },
   "repository": "https://github.com/xingoxu/ps4-wallpaper-helper",
   "author": "xingo",
   "license": "MIT",
   "devDependencies": {
     "electron": "^1.4.1",
-    "electron-builder": "^13.11.1"
+    "electron-builder": "^13.11.1",
+    "shelljs": "^0.7.6"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "ejs": "~2.5.5",
+    "electron-config": "^0.2.1",
     "electron-is-dev": "^0.1.2",
     "express": "~4.14.1",
     "morgan": "~1.7.0",
@@ -30,6 +33,12 @@
     "appId": "com.xingoxu.ps4helper",
     "mac": {
       "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "7z",
+        "nsis"
+      ]
     }
   }
 }
