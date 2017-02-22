@@ -5,24 +5,25 @@ import Vue from 'vue';
 import i18nTrans from './locale.js';
 import merge from 'merge';
 
-let version = '1.01-beta';
+let version = '1.02-beta';
+let swVersion = '1.0.2';
 const relativeURL = `xingoxu/ps4-wallpaper-helper`;
 
 let links = {
   win: {
     '32exe': {
-      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper.Setup.1.0.1.x86.exe`,
+      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper.Setup.${swVersion}.ia32.exe`,
     },
     '64exe': {
-      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper.Setup.1.0.1.x64.exe`,
+      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper.Setup.${swVersion}.x64.exe`,
     },
     '647z': {
-      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper.1.0.1.win.x64.7z`,
+      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper.${swVersion}.win.x64.7z`,
     },
   },
   mac: {
     'dmg': {
-      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper-1.0.1.dmg`,
+      link: `https://github.com/${relativeURL}/releases/download/${version}/PS4.Wallpaper.Helper-${swVersion}.dmg`,
     },
   },
 };
