@@ -1,7 +1,7 @@
 {
   "name": "ps4-wallpaper-helper",
   "productName": "PS4 Wallpaper Helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A really helpful tool for change ps4 wallpaper",
   "main": "main.js",
   "scripts": {

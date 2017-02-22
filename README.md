@@ -10,7 +10,14 @@ A tool help you to change PS4(after 4.50) wallpaper and profile page image.
 
     Please turn off your proxy and press ctrl/⌘ + R （请关掉代理，然后按下 Ctrl/⌘ + R）
 
-Built and Inspired by 
+## Develop
+
+```bash
+npm run start //dev
+npm run dist //build a package for your pc
+```
+
+## Built and Inspired by 
 
 - [Electron](http://electron.atom.io/)
 - [Express.js](http://expressjs.com/)
