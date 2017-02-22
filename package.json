@@ -7,7 +7,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "build",
+    "dist:win": "node build.js"
   },
   "repository": "https://github.com/xingoxu/ps4-wallpaper-helper",
   "author": "xingo",

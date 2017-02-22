@@ -29,4 +29,5 @@ builder.build({
   })
   .then(result => {
     mv(path.resolve(distPath, `${productName} Setup ${version}.exe`), path.resolve(distPath, `${productName} Setup ${version}.x64.exe`));
+    mv(path.resolve(distPath, `${productName}-${version}-win.7z`), path.resolve(distPath, `${productName}.${version}.win.x64.7z`));
   })
