@@ -5,8 +5,8 @@ import Vue from 'vue';
 import i18nTrans from './locale.js';
 import merge from 'merge';
 
-let version = '1.02-beta';
-let swVersion = '1.0.2';
+let version = '1.03';
+let swVersion = '1.0.3';
 const relativeURL = `xingoxu/ps4-wallpaper-helper`;
 
 let links = {
