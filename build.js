@@ -7,7 +7,7 @@ const config = {
   outputRoot: './dist/',
   srcRoot: './src/',
   publicPath: processEnv == 'dev' ? '/dist/' : '/ps4helper/dist/',
-  // publicPath: 'http://7xin1x.com1.z0.glb.clouddn.com/works/', 自动上传七牛  待做  
+  // publicPath: 'https://static.xingoxu.com/', 自动上传  待做  
 };
 
 
